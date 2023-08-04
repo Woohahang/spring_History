@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8" pattern="%d{hh:mm:ss} %5p [%c] %m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+
+        <logger name="org.springframework" level="INFO" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <logger name="org.zerock" level="INFO" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+        <!-- 여기 매퍼쪽만 sql 돌리니까 레벨을 트레이스로 해서 sql 문구 찍히게 한거임 -->
+        <logger name="org.zerock.springex.mapper" level="TRACE" additivity="false">
+            <appender-ref ref="console" />
+        </logger>
+
+
+
+
+        <!-- 최상위 로거 -->
+        <!-- 상위 로거로부터 상속 받는 로그 이벤트를 복사하지 않는다. 상위 영향 안 받는다. -->
+        <Root level="info">
+            <AppenderRef ref="console"/>
+        </Root>
+
+    </Loggers>
+</Configuration>
+
